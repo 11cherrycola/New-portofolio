@@ -310,13 +310,49 @@ export default function Home() {
                 </div>
               </div>
 
-              <Button className="mt-8 bg-pink-500 hover:bg-pink-600 text-white">
-                <Download className="mr-2 h-4 w-4" /> Download CV
-              </Button>
-            </motion.div>
-          </div>
+              import { useState } from "react";
+import { Download } from "lucide-react";
+import { Dialog } from "@headlessui/react";
+import { Button } from "@/components/ui/button"; // Sesuaikan dengan proyek Anda
+
+export default function CVSection() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <section>
+      {/* Tombol CV */}
+      <Button
+        className="mt-8 bg-pink-500 hover:bg-pink-600 text-white"
+        onClick={() => setIsOpen(true)}
+      >
+        <Download className="mr-2 h-4 w-4" /> Lihat CV
+      </Button>
+
+      {/* Modal Pop-up */}
+      <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+          <Dialog.Panel className="bg-white rounded-xl shadow-xl max-w-4xl w-full p-4">
+            <Dialog.Title className="text-xl font-semibold mb-2">Curriculum Vitae</Dialog.Title>
+            <iframe
+              src="/cv.pdf"
+              className="w-full h-[80vh]"
+              frameBorder="0"
+              title="CV Viewer"
+            />
+            <div className="text-right mt-4">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+              >
+                Tutup
+              </button>
+            </div>
+          </Dialog.Panel>
         </div>
-      </section>
+      </Dialog>
+    </section>
+  );
+}
 
       {/* Skills Section */}
       <section className="py-20 px-4 md:px-8 bg-pink-50">
