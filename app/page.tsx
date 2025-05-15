@@ -338,11 +338,11 @@ export default function Home() {
             {[
               { name: "HTML", level: 90 },
               { name: "CSS", level: 85 },
-              { name: "JavaScript", level: 80 },
+              { name: "JavaScript", level: 60 },
               { name: "React", level: 75 },
-              { name: "Next.js", level: 70 },
-              { name: "Tailwind", level: 85 },
-              { name: "UI/UX", level: 75 },
+              { name: "Next.js", level: 80 },
+              { name: "Tailwind", level: 80 },
+              { name: "UI/UX", level: 80 },
               { name: "Figma", level: 65 },
             ].map((skill, index) => (
               <motion.div
@@ -524,7 +524,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-700">Email</h4>
-                      <p className="text-gray-600">email@example.com</p>
+                      <p className="text-gray-600">ivyyasmin.ivy@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -540,7 +540,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-700">Telepon</h4>
-                      <p className="text-gray-600">+62 123 4567 890</p>
+                      <p className="text-gray-600">+6281271740827</p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -562,7 +562,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-700">Lokasi</h4>
-                      <p className="text-gray-600">Jakarta, Indonesia</p>
+                      <p className="text-gray-600">Bandung, Indonesia</p>
                     </div>
                   </div>
                 </div>
