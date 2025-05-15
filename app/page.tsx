@@ -10,6 +10,11 @@ import { Github, Mail, Instagram, Linkedin, Download, User, Code, Briefcase, Hea
 import Image from "next/image"
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
+const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
+  if (ref.current) {
+    ref.current.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 
 
 
