@@ -8,6 +8,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Github, Mail, Instagram, Linkedin, Download, User, Code, Briefcase, Heart } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
+
+
+
 
 // Butterfly Animation Component
 const ButterflyAnimation = () => {
@@ -134,6 +139,7 @@ const ButterflyIcon = ({ color = "#f472b6" }: { color?: string }) => {
 }
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
   const projectsRef = useRef<HTMLDivElement>(null)
   const aboutRef = useRef<HTMLDivElement>(null)
   const contactRef = useRef<HTMLDivElement>(null)
@@ -167,14 +173,14 @@ export default function Home() {
             className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
-          >
-            <Image
-              src="/placeholder.svg?height=128&width=128"
-              alt="Profile"
-              width={128}
-              height={128}
-              className="object-cover"
-            />
+          ><Image
+          src="/grdr 2025-03-04 180641.145.JPG"
+          alt="Profile"
+          width={130}
+          height={100}
+          className="object-cover -translate-y-4"
+        />
+      
           </motion.div>
 
           <motion.h1
@@ -266,12 +272,14 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <Image
-                src="/placeholder.svg?height=400&width=400"
-                alt="About Me"
-                width={400}
-                height={400}
-                className="rounded-lg shadow-lg mx-auto"
-              />
+  src="/FORMAL PHOTO.jpg"
+  alt="About Me"
+  width={300}
+  height={200}
+  className="rounded-lg shadow-lg mx-auto"
+/>
+
+              
             </motion.div>
 
             <motion.div
@@ -309,50 +317,38 @@ export default function Home() {
                   <span className="text-gray-700">Responsive Design</span>
                 </div>
               </div>
+              <Button
+              className="mt-8 bg-pink-500 hover:bg-pink-600 text-white"
+              onClick={() => setIsOpen(true)}
+>
+             <Download className="mr-2 h-4 w-4" /> Lihat CV
+        </Button>
+        <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
+  <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+    <Dialog.Panel className="bg-white rounded-xl shadow-xl max-w-4xl w-full p-4">
+      <Dialog.Title className="text-xl font-semibold mb-4">Curriculum Vitae</Dialog.Title>
+      <iframe
+        src="/cv.pdf"
+        className="w-full h-[80vh]"
+        frameBorder="0"
+        title="CV Viewer"
+      />
+      <div className="text-right mt-4">
+        <button
+          onClick={() => setIsOpen(false)}
+          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+        >
+          Tutup
+        </button>
+      </div>
+    </Dialog.Panel>
+  </div>
+</Dialog>
 
-              import { useState } from "react";
-import { Download } from "lucide-react";
-import { Dialog } from "@headlessui/react";
-import { Button } from "@/components/ui/button"; // Sesuaikan dengan proyek Anda
-
-export default function CVSection() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <section>
-      {/* Tombol CV */}
-      <Button
-        className="mt-8 bg-pink-500 hover:bg-pink-600 text-white"
-        onClick={() => setIsOpen(true)}
-      >
-        <Download className="mr-2 h-4 w-4" /> Lihat CV
-      </Button>
-
-      {/* Modal Pop-up */}
-      <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-          <Dialog.Panel className="bg-white rounded-xl shadow-xl max-w-4xl w-full p-4">
-            <Dialog.Title className="text-xl font-semibold mb-2">Curriculum Vitae</Dialog.Title>
-            <iframe
-              src="/cv.pdf"
-              className="w-full h-[80vh]"
-              frameBorder="0"
-              title="CV Viewer"
-            />
-            <div className="text-right mt-4">
-              <button
-                onClick={() => setIsOpen(false)}
-                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-              >
-                Tutup
-              </button>
-            </div>
-          </Dialog.Panel>
+            </motion.div>
+          </div>
         </div>
-      </Dialog>
-    </section>
-  );
-}
+      </section>
 
       {/* Skills Section */}
       <section className="py-20 px-4 md:px-8 bg-pink-50">
@@ -608,7 +604,9 @@ export default function CVSection() {
                 <h3 className="text-2xl font-semibold mb-6 text-pink-600">Media Sosial</h3>
                 <div className="flex flex-wrap gap-4">
                   <motion.a
-                    href="#"
+                    href="https://www.instagram.com/aaivyasminn?igsh=bnhwa2Y3cmdyenR4&utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-pink-100 p-3 rounded-full text-pink-600 hover:bg-pink-200 transition-colors"
                     whileHover={{ y: -5 }}
                     transition={{ type: "spring", stiffness: 400 }}
@@ -616,15 +614,18 @@ export default function CVSection() {
                     <Instagram className="h-6 w-6" />
                   </motion.a>
                   <motion.a
-                    href="#"
-                    className="bg-pink-100 p-3 rounded-full text-pink-600 hover:bg-pink-200 transition-colors"
-                    whileHover={{ y: -5 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
+  href="https://www.linkedin.com/in/aulia-yasmin-1851492b1"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-pink-100 p-3 rounded-full text-pink-600 hover:bg-pink-200 transition-colors"
+  whileHover={{ y: -5 }}
+  transition={{ type: "spring", stiffness: 400 }}
+>
+                
                     <Linkedin className="h-6 w-6" />
                   </motion.a>
                   <motion.a
-                    href="#"
+                    href="https://github.com/11cherrycola"
                     className="bg-pink-100 p-3 rounded-full text-pink-600 hover:bg-pink-200 transition-colors"
                     whileHover={{ y: -5 }}
                     transition={{ type: "spring", stiffness: 400 }}
