@@ -10,11 +10,7 @@ import { Github, Mail, Instagram, Linkedin, Download, User, Code, Briefcase, Hea
 import Image from "next/image"
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
-const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
-  if (ref.current) {
-    ref.current.scrollIntoView({ behavior: 'smooth' })
-  }
-}
+
 
 
 
@@ -212,22 +208,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.8 }}
           >
-            <Button onClick={() => scrollToSection(aboutRef)} className="bg-pink-500 hover:bg-pink-600 text-white">
-              <User className="mr-2 h-4 w-4" /> Tentang Saya
-            </Button>
-            <Button
-              onClick={() => scrollToSection(projectsRef)}
-              className="bg-purple-500 hover:bg-purple-600 text-white"
-            >
-              <Briefcase className="mr-2 h-4 w-4" /> Portofolio
-            </Button>
-            <Button
-              onClick={() => scrollToSection(contactRef)}
-              variant="outline"
-              className="border-pink-300 text-pink-700 hover:bg-pink-100"
-            >
-              <Mail className="mr-2 h-4 w-4" /> Kontak
-            </Button>
+            
           </motion.div>
         </motion.div>
 
